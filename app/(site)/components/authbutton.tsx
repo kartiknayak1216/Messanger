@@ -7,7 +7,7 @@ import {signIn,useSession} from 'next-auth/react'
 import { Toaster, toast } from 'sonner'
 import { LuLoader2 } from "react-icons/lu";
 import { useRouter } from 'next/navigation';
-import e from 'cors';
+
 export default function Authbutton() {
   
     const [isLoading, setIsLoading] = useState(false);
