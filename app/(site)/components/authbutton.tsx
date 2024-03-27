@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { BsGithub, BsGoogle  } from 'react-icons/bs';
@@ -7,6 +7,7 @@ import {signIn,useSession} from 'next-auth/react'
 import { Toaster, toast } from 'sonner'
 import { LuLoader2 } from "react-icons/lu";
 import { useRouter } from 'next/navigation';
+import e from 'cors';
 export default function Authbutton() {
   
     const [isLoading, setIsLoading] = useState(false);
@@ -24,7 +25,8 @@ export default function Authbutton() {
     }, [session?.status, router]);
 
 
-    const socialAction = (action: string) => {
+    const socialAction = (action: string, e: React.MouseEvent<HTMLButtonElement>) => {
+      e.preventDefault()
         setIsLoading(true);
 
         signIn(action, { redirect: false })
@@ -53,7 +55,7 @@ export default function Authbutton() {
       Proceed to your account
     </div>
     <Button variant={"ghost"}className="flex gap-4  text-center mt-12 md:mt-9  text-muted-foreground "
-    onClick={() => socialAction('google')}
+    onClick={(e) => socialAction('google',e)}
     disabled={isLoading}>
       <BsGoogle  className="text-xl"/>
      <div className="text-center text-xl font-semibold">
