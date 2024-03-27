@@ -5,7 +5,7 @@ import Image from "next/image";
 import { BsGithub, BsGoogle  } from 'react-icons/bs';
 import {signIn,useSession} from 'next-auth/react'
 import { Toaster, toast } from 'sonner'
-import { LuLoader2 } from "react-icons/lu";
+
 import { useRouter } from 'next/navigation';
 
 export default function Authbutton() {
